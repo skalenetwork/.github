@@ -30,7 +30,7 @@ You can report security bugs by emailing us directly at [security@skalelabs.com]
 
 ## Comments on This Policy
 
-If you have suggestions on how this process could be improved, please submit a pull request https://github.com/skalenetwork/.github/edit/main/SECURITY.MD
+If you have suggestions on how this process could be improved, please submit a pull request https://github.com/skalenetwork/.github/edit/main/SECURITY.md
 
 ## Bug Reporting Bounty
 
