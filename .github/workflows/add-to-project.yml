@@ -16,4 +16,4 @@ jobs:
           # You can target a repository in a different organization
           # to the issue
           project-url: https://github.com/orgs/skalenetwork/projects/6
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          github-token: ${{ secrets.PAT_PROJECT }}
