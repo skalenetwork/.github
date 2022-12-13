@@ -21,6 +21,8 @@ IMA Proxy has been audited independently by [Quantstamp](https://www.quantstamp.
 
 -   Nov 2020 <https://certificate.quantstamp.com/full/skale-proxy-contracts>
 -   Jun 2021 <https://bramah.systems/audits/SKALE_Audit_Bramah.pdf>
+-   Feb 2022 <https://code4rena.com/reports/2022-02-skale>
+-   Nov 2022 <https://github.com/solidified-platform/audits/blob/master/Audit%20Report%20-%20SKALE.pdf>
 
 ## Reporting a Bug
 
