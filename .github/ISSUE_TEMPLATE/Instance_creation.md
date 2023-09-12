@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Description**
-Requied infromation for request.
+Required information for request.
 
 **Information**
 Used for: info
