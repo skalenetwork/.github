@@ -13,16 +13,18 @@ Contracts are periodically audited by third parties.
 SKALE Manager has been audited independently by [ConsenSys Diligence](https://diligence.consensys.net/) and by [Quantstamp](https://www.quantstamp.com).
 
 -   <https://diligence.consensys.net/audits/2020/01/skale-token/>
+-   <https://diligence.consensys.io/audits/2020/10/skale-network/>
 -   <https://certificate.quantstamp.com/full/skale-network>
 
 ### IMA Proxy contracts
 
 IMA Proxy has been audited independently by [Quantstamp](https://www.quantstamp.com) and [Bramah Systems](https://www.bramah.systems/).
 
--   Nov 2020 <https://certificate.quantstamp.com/full/skale-proxy-contracts>
+-   Nov 2020 <https://certificate.quantstamp.com/full/skale-proxy-contracts.pdf>
+-   Oct 2020 <https://certificate.quantstamp.com/full/skale-allocator.pdf>
 -   Jun 2021 <https://bramah.systems/audits/SKALE_Audit_Bramah.pdf>
 -   Feb 2022 <https://code4rena.com/reports/2022-02-skale>
--   Nov 2022 <https://github.com/solidified-platform/audits/blob/master/Audit%20Report%20-%20SKALE.pdf>
+-   Jan 2023 <https://github.com/solidified-platform/audits/blob/master/Audit%20Report%20-%20SKALE.pdf>
 
 ## Reporting a Bug
 
