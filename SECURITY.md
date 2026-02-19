@@ -10,11 +10,12 @@ Contracts are periodically audited by third parties.
 
 ### SKALE Manager
 
-SKALE Manager has been audited independently by [ConsenSys Diligence](https://diligence.consensys.net/) and by [Quantstamp](https://www.quantstamp.com).
+SKALE Manager has been audited independently by [ConsenSys Diligence](https://diligence.consensys.net/), [Quantstamp](https://www.quantstamp.com) and [Hacken.io](https://hacken.io/)
 
 -   <https://diligence.consensys.net/audits/2020/01/skale-token/>
 -   <https://diligence.consensys.io/audits/2020/10/skale-network/>
 -   <https://certificate.quantstamp.com/full/skale-network>
+-   <https://hacken.io/audits/skale/sca-skale-skale-manager-jan2026/> 
 
 ### IMA Proxy contracts
 
