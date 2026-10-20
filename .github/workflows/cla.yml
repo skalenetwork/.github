@@ -1,0 +1,47 @@
+name: cla
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  actions: write
+  contents: read
+  pull-requests: write
+  statuses: write
+
+jobs:
+  cla:
+    runs-on: ubuntu-latest
+    steps:
+      - id: app
+        uses: actions/create-github-app-token@<sha>
+        with:
+          client-id: ${{ vars.CLA_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.CLA_BOT_KEY }}
+          owner: skalenetwork
+          repositories: cla-sigs
+          permission-contents: write
+          permission-members: read
+
+      - id: team
+        uses: actions/github-script@7a5c598405937d486b0331594b5da2b14db670da
+        with:
+          github-token: ${{ steps.app.outputs.token }}
+          result-encoding: string
+          script: |
+            const m = await github.paginate(github.rest.orgs.listMembers, { org: "skalenetwork", per_page: 100 });
+            return m.map(x => x.login).join(",");
+
+      - uses: contributor-assistant/github-action@<sha>
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PERSONAL_ACCESS_TOKEN: ${{ steps.app.outputs.token }}
+        with:
+          path-to-signatures: signatures/version1/cla.json
+          path-to-document: https://skale.space/cla-txt
+          remote-organization-name: skalenetwork
+          remote-repository-name: cla-sigs
+          branch: master
+          allowlist: ${{ steps.team.outputs.result }},*[bot]
+          custom-pr-sign-comment: "I have read the CLA Document and I hereby sign the CLA"
+          custom-notsigned-prcomment: "Please sign the CLA by commenting the sentence below, then edit this PR's description (or push a commit) to re-run the check."
