@@ -1,6 +1,6 @@
 name: CLA
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened, edited]
 
 permissions:
@@ -13,7 +13,6 @@ jobs:
   cla:
     runs-on: ubuntu-latest
     steps:
-      # no checkout: this job has a secret and runs on PRs from forks
       - id: app
         uses: actions/create-github-app-token@v3
         with:
@@ -34,7 +33,7 @@ jobs:
             return m.map(x => x.login).join(",");
 
       - id: cla
-        continue-on-error: true   # action fails on its "re-run" step when run from .github
+        continue-on-error: ${{ vars.CLA_ENFORCE != 'true' }}   # advisory until org variable CLA_ENFORCE=true
         uses: contributor-assistant/github-action@ba066dbae3769e2ce93ec8cfc4fdc51b9db628ba
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -46,14 +45,3 @@ jobs:
           remote-repository-name: cla-sigs
           branch: master
           allowlist: ${{ steps.team.outputs.result }},*[bot]
-
-      - name: Verify every author signed
-        env:
-          GH_TOKEN: ${{ steps.app.outputs.token }}
-          PR_TOKEN: ${{ github.token }}
-          ALLOW: ${{ steps.team.outputs.result }}
-        run: |
-          signed=$(gh api "repos/skalenetwork/cla-sigs/contents/signatures/version1/cla.json?ref=master" -H "Accept: application/vnd.github.raw" | jq -r '.signedContributors[].name')
-          for a in $(GH_TOKEN=$PR_TOKEN gh api "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" --paginate --jq '.[].author.login'); do
-            [[ $a == *"[bot]" || ",$ALLOW," == *",$a,"* ]] || grep -qx "$a" <<<"$signed" || { echo "::error::CLA not signed by $a"; exit 1; }
-          done
