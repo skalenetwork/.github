@@ -1,4 +1,4 @@
-name: cla
+name: CLA
 on:
   pull_request_target:
     types: [opened, synchronize, reopened, edited]
@@ -43,6 +43,5 @@ jobs:
           remote-repository-name: cla-sigs
           branch: master
           allowlist: ${{ steps.team.outputs.result }},*[bot]
-          suggest-recheck: 'false'
           custom-pr-sign-comment: "I have read the CLA Document and I hereby sign the CLA"
           custom-notsigned-prcomment: "Please sign the CLA by commenting the sentence below, then edit this PR's description (or push a commit) to re-run the check."
