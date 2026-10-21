@@ -33,7 +33,6 @@ jobs:
             return m.map(x => x.login).join(",");
 
       - id: cla
-        continue-on-error: ${{ vars.CLA_ENFORCE != 'true' }}   # advisory until org variable CLA_ENFORCE=true
         uses: contributor-assistant/github-action@ba066dbae3769e2ce93ec8cfc4fdc51b9db628ba
         env:
           GITHUB_TOKEN: ${{ github.token }}
