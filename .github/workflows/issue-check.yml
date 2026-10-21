@@ -1,4 +1,4 @@
-name: Get linked issues
+name: Check linked issues
 on:
   pull_request:
     types: [ edited, synchronize, opened, reopened ]
@@ -12,7 +12,7 @@ jobs:
         id: app
         uses: actions/create-github-app-token@v3  
         with:
-          client-id: ${{ vars.ISSUE_READER_APP_ID }}
+          client-id: ${{ vars.ISSUE_READER_CLIENT_ID }}
           private-key: ${{ secrets.ISSUE_READER_KEY }}
           owner: skalenetwork
           permission-issues: read
