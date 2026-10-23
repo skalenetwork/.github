@@ -16,6 +16,7 @@ jobs:
           private-key: ${{ secrets.ISSUE_READER_KEY }}
           owner: skalenetwork
           permission-issues: read
+          permission-pull-requests: read
       - name: Get issues
         id: get-issues
         uses: mondeja/pr-linked-issues-action@15e15b5aa999ae8a742117c9489aa63b1a007b76
